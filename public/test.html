@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short URL Tester</title>
+    <script>
+        async function shortenUrl() {
+            const originalUrl = document.getElementById('originalUrl').value;
+            const customPath = document.getElementById('customPath').value;
+
+            const response = await fetch('/api/shorten', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ originalUrl, customPath })
+            });
+
+            const result = await response.json();
+            document.getElementById('result').textContent = result.shortUrl || result.error;
+        }
+    </script>
+</head>
+<body>
+    <h1>Short URL Tester</h1>
+    <label for="originalUrl">Original URL:</label>
+    <input type="text" id="originalUrl" required>
+    <br>
+    <label for="customPath">Custom Path (optional):</label>
+    <input type="text" id="customPath">
+    <br>
+    <button onclick="shortenUrl()">Shorten URL</button>
+    <p id="result"></p>
+</body>
+</html>

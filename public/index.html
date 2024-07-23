@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+
+    <!-- Shorten URL Section -->
+    <section>
+        <h2>Shorten URL</h2>
+        <form id="shorten-form">
+            <label for="originalUrl">Enter URL:</label>
+            <input type="text" id="originalUrl" name="originalUrl" required>
+            <button type="submit">Shorten</button>
+        </form>
+        <p id="shorten-result"></p>
+    </section>
+
+    <!-- Delete URL Section -->
+    <section>
+        <h2>Delete URL</h2>
+        <form id="delete-form">
+            <label for="id">Enter URL ID:</label>
+            <input type="text" id="id" name="id" required>
+            <label for="adminId">Enter Admin ID:</label>
+            <input type="text" id="adminId" name="adminId" required>
+            <button type="submit">Delete</button>
+        </form>
+        <p id="delete-result"></p>
+    </section>
+
+    <!-- Report URL Section -->
+    <section>
+        <h2>Report URL</h2>
+        <form id="report-form">
+            <label for="reportId">Enter URL ID:</label>
+            <input type="text" id="reportId" name="reportId" required>
+            <button type="submit">Report</button>
+        </form>
+        <p id="report-result"></p>
+    </section>
+
+    <!-- Report List Section -->
+    <section>
+        <h2>Report List</h2>
+        <ul id="report-list"></ul>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

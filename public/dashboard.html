@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script>
+        async function fetchUrls() {
+            const response = await fetch('/api/urls');
+            const urls = await response.json();
+            const list = document.getElementById('url-list');
+            list.innerHTML = '';
+            urls.forEach(url => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `ID: ${url.id} | Original URL: <a href="${url.originalUrl}" target="_blank">${url.originalUrl}</a> | Short URL: <a href="${url.shortUrl}" target="_blank">${url.shortUrl}</a>`;
+                list.appendChild(listItem);
+            });
+        }
+
+        async function fetchReports() {
+            const response = await fetch('/api/reports');
+            const reports = await response.json();
+            const list = document.getElementById('report-list');
+            list.innerHTML = '';
+            reports.forEach(report => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `ID: ${report.id} | Original URL: <a href="${report.originalUrl}" target="_blank">${report.originalUrl}</a>`;
+                list.appendChild(listItem);
+            });
+        }
+
+        window.onload = function() {
+            fetchUrls();
+            fetchReports();
+        }
+    </script>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <h2>URL List</h2>
+    <ul id="url-list"></ul>
+    <h2>Reports</h2>
+    <ul id="report-list"></ul>
+</body>
+</html>

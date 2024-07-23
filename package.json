@@ -1,0 +1,17 @@
+{
+    "name": "dino-game-uptime-server",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "A web-based game similar to Chrome's dinosaur game with URL shortening and reporting features",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.17.1",
+      "shortid": "^2.2.16"
+    }
+  }
+  
