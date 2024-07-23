@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 3300;
+const PORT = process.env.PORT || 80;
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -186,6 +186,7 @@ app.get('/:id', (req, res) => {
     res.redirect(originalUrl);
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server berjalan di http://localhost:${PORT}`);
 });
+
